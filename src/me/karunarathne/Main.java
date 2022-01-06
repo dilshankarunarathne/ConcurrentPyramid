@@ -1,5 +1,7 @@
 package me.karunarathne;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Main {
     public static void main(String[] args) {
         Thread t1 = new Thread(new WritingThread('@'));
