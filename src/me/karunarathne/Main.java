@@ -1,20 +1,15 @@
 package me.karunarathne;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 public class Main {
-    public static void main(String[] args) {
-        Thread t1 = new Thread(new WritingThread('@'));
-//        t1.start();
-        Thread t2 = new Thread(new WritingThread('#'));
-//        t2.start();
-        t1.run();
-        t2.run();
 
+    public static void main(String[] args) {
+        Thread my = new Thread(new WritingThread('x'));
+        my.start();
     }
 }
 
 class WritingThread implements Runnable {
+
     public static int currentLine = 1;
     public static int totalLines = 5;
     char c = '*';
@@ -25,6 +20,7 @@ class WritingThread implements Runnable {
 
     @Override
     public void run() {
+
         while(currentLine <= totalLines) {
             for (int s = 0; s < totalLines - currentLine; s++) {
                 System.out.print(" ");
